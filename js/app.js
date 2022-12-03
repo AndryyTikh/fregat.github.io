@@ -822,7 +822,7 @@
       n || 0
     );
   }
-  function C(e) {
+  function E(e) {
     return (
       "object" == typeof e &&
       null !== e &&
@@ -848,11 +848,11 @@
             n = Object.getOwnPropertyDescriptor(r, i);
           void 0 !== n &&
             n.enumerable &&
-            (C(t[i]) && C(r[i])
+            (E(t[i]) && E(r[i])
               ? r[i].__swiper__
                 ? (t[i] = r[i])
                 : y(t[i], r[i])
-              : !C(t[i]) && C(r[i])
+              : !E(t[i]) && E(r[i])
               ? ((t[i] = {}), r[i].__swiper__ ? (t[i] = r[i]) : y(t[i], r[i]))
               : (t[i] = r[i]));
         }
@@ -861,7 +861,7 @@
     var i;
     return t;
   }
-  function E(e, t, s) {
+  function C(e, t, s) {
     e.style.setProperty(t, s);
   }
   function x({ swiper: e, targetPosition: t, side: s }) {
@@ -893,8 +893,8 @@
       };
     p();
   }
-  let k, M, L;
-  function P() {
+  let k, M, P;
+  function L() {
     return (
       k ||
         (k = (function () {
@@ -929,7 +929,7 @@
     return (
       M ||
         (M = (function ({ userAgent: e } = {}) {
-          const t = P(),
+          const t = L(),
             s = c(),
             i = s.navigator.platform,
             n = e || s.navigator.userAgent,
@@ -973,8 +973,8 @@
   }
   function $() {
     return (
-      L ||
-        (L = (function () {
+      P ||
+        (P = (function () {
           const e = c();
           return {
             isSafari: (function () {
@@ -990,7 +990,7 @@
             ),
           };
         })()),
-      L
+      P
     );
   }
   const O = {
@@ -1143,7 +1143,7 @@
       let b = i.spaceBetween,
         T = -m,
         S = 0,
-        C = 0;
+        E = 0;
       if (void 0 === r) return;
       "string" == typeof b &&
         b.indexOf("%") >= 0 &&
@@ -1154,8 +1154,8 @@
           : c.css({ marginRight: "", marginBottom: "", marginTop: "" }),
         i.centeredSlides &&
           i.cssMode &&
-          (E(e.wrapperEl, "--swiper-centered-offset-before", ""),
-          E(e.wrapperEl, "--swiper-centered-offset-after", ""));
+          (C(e.wrapperEl, "--swiper-centered-offset-before", ""),
+          C(e.wrapperEl, "--swiper-centered-offset-after", ""));
       const y = i.grid && i.grid.rows > 1 && e.grid;
       let x;
       y && e.grid.initSlides(p);
@@ -1210,17 +1210,17 @@
                 0 === n && (T = T - r / 2 - b),
                 Math.abs(T) < 0.001 && (T = 0),
                 i.roundLengths && (T = Math.floor(T)),
-                C % i.slidesPerGroup == 0 && u.push(T),
+                E % i.slidesPerGroup == 0 && u.push(T),
                 h.push(T))
               : (i.roundLengths && (T = Math.floor(T)),
-                (C - Math.min(e.params.slidesPerGroupSkip, C)) %
+                (E - Math.min(e.params.slidesPerGroupSkip, E)) %
                   e.params.slidesPerGroup ==
                   0 && u.push(T),
                 h.push(T),
                 (T = T + x + b)),
             (e.virtualSize += x + b),
             (S = x),
-            (C += 1);
+            (E += 1);
         }
       }
       if (
@@ -1286,8 +1286,8 @@
         }),
         i.centeredSlides && i.cssMode && !i.centeredSlidesBounds)
       ) {
-        E(e.wrapperEl, "--swiper-centered-offset-before", -u[0] + "px"),
-          E(
+        C(e.wrapperEl, "--swiper-centered-offset-before", -u[0] + "px"),
+          C(
             e.wrapperEl,
             "--swiper-centered-offset-after",
             e.size / 2 - f[f.length - 1] / 2 + "px"
@@ -1668,7 +1668,7 @@
       );
     },
   };
-  function D({ swiper: e, runCallbacks: t, direction: s, step: i }) {
+  function _({ swiper: e, runCallbacks: t, direction: s, step: i }) {
     const { activeIndex: n, previousIndex: r } = e;
     let a = s;
     if (
@@ -1683,7 +1683,7 @@
           : e.emit(`slidePrevTransition${i}`);
     }
   }
-  const _ = {
+  const D = {
     slideTo: function (e = 0, t = this.params.speed, s = !0, i, n) {
       if ("number" != typeof e && "string" != typeof e)
         throw new Error(
@@ -2039,7 +2039,7 @@
         s.removeAttr("data-swiper-slide-index");
     },
   };
-  function N(e) {
+  function B(e) {
     const t = this,
       s = l(),
       i = c(),
@@ -2130,7 +2130,7 @@
       t.freeMode.onTouchStart(),
       t.emit("touchStart", d);
   }
-  function B(e) {
+  function N(e) {
     const t = l(),
       s = this,
       i = s.touchEventsData,
@@ -2394,7 +2394,7 @@
           "prev" === t.swipeDirection && t.slideTo(null !== m ? m : u));
     }
   }
-  function H() {
+  function V() {
     const e = this,
       { params: t, el: s } = e;
     if (s && 0 === s.offsetWidth) return;
@@ -2416,7 +2416,7 @@
       (e.allowSlideNext = i),
       e.params.watchOverflow && r !== e.snapGrid && e.checkOverflow();
   }
-  function W(e) {
+  function H(e) {
     const t = this;
     t.enabled &&
       (t.allowClick ||
@@ -2425,7 +2425,7 @@
           t.animating &&
           (e.stopPropagation(), e.stopImmediatePropagation())));
   }
-  function V() {
+  function W() {
     const e = this,
       { wrapperEl: t, rtlTranslate: s, enabled: i } = e;
     if (!i) return;
@@ -2483,21 +2483,21 @@
             o.ios || o.android
               ? "resize orientationchange observerUpdate"
               : "resize observerUpdate",
-            H,
+            V,
             !0
           )
-        : e[u]("observerUpdate", H, !0);
+        : e[u]("observerUpdate", V, !0);
   };
   const X = {
       attachEvents: function () {
         const e = this,
           t = l(),
           { params: s, support: i } = e;
-        (e.onTouchStart = N.bind(e)),
-          (e.onTouchMove = B.bind(e)),
+        (e.onTouchStart = B.bind(e)),
+          (e.onTouchMove = N.bind(e)),
           (e.onTouchEnd = j.bind(e)),
-          s.cssMode && (e.onScroll = V.bind(e)),
-          (e.onClick = W.bind(e)),
+          s.cssMode && (e.onScroll = W.bind(e)),
+          (e.onClick = H.bind(e)),
           i.touch && !F && (t.addEventListener("touchstart", q), (F = !0)),
           R(e, "on");
       },
@@ -2754,7 +2754,7 @@
             { params: i } = s;
           i.cssMode ||
             (i.autoHeight && s.updateAutoHeight(),
-            D({ swiper: s, runCallbacks: e, direction: t, step: "Start" }));
+            _({ swiper: s, runCallbacks: e, direction: t, step: "Start" }));
         },
         transitionEnd: function (e = !0, t) {
           const s = this,
@@ -2762,10 +2762,10 @@
           (s.animating = !1),
             i.cssMode ||
               (s.setTransition(0),
-              D({ swiper: s, runCallbacks: e, direction: t, step: "End" }));
+              _({ swiper: s, runCallbacks: e, direction: t, step: "End" }));
         },
       },
-      slide: _,
+      slide: D,
       loop: G,
       grabCursor: {
         setGrabCursor: function (e) {
@@ -2880,7 +2880,7 @@
       }
       const i = this;
       (i.__swiper__ = !0),
-        (i.support = P()),
+        (i.support = L()),
         (i.device = A({ userAgent: s.userAgent })),
         (i.browser = $()),
         (i.eventsListeners = {}),
@@ -3533,6 +3533,17 @@
         for (const t of e.children) t.classList.add("swiper-slide");
       });
   }
+  function re() {
+    let e = document.querySelectorAll(
+      '[class*="__swiper"]:not(.swiper-wrapper)'
+    );
+    e &&
+      e.forEach((e) => {
+        e.parentElement.classList.add("swiper"),
+          e.classList.add("swiper-wrapper");
+        for (const t of e.children) t.classList.add("swiper-slide");
+      });
+  }
   window.addEventListener("load", function (e) {
     ne(),
       document.querySelector(".main-slider__slider") &&
@@ -3550,20 +3561,45 @@
           },
           on: {},
         });
-  });
-  let re = !1;
+  }),
+    window.addEventListener("load", function (e) {
+      re(),
+        document.querySelector(".brands__slider") &&
+          new se(".brands__slider", {
+            modules: [ie],
+            observer: !0,
+            observeParents: !0,
+            slidesPerView: 5,
+            spaceBetween: 0,
+            speed: 800,
+            navigation: {
+              nextEl: ".brands__slider-next",
+              prevEl: ".brands__slider-prev",
+            },
+            breakpoints: {
+              320: { slidesPerView: 2, spaceBetween: 30 },
+              430: { slidesPerView: 3, spaceBetween: 30 },
+              500: { slidesPerView: 3, spaceBetween: 40 },
+              630: { slidesPerView: 4, spaceBetween: 50 },
+              768: { slidesPerView: 5, spaceBetween: 50 },
+              1100: { slidesPerView: 5, spaceBetween: 90 },
+            },
+            on: {},
+          });
+    });
+  let ae = !1;
   setTimeout(() => {
-    if (re) {
+    if (ae) {
       let e = new Event("windowScroll");
       window.addEventListener("scroll", function (t) {
         document.dispatchEvent(e);
       });
     }
   }, 0);
-  const ae = document.querySelectorAll(".home-categories__column");
-  ae.length &&
+  const oe = document.querySelectorAll(".home-categories__column");
+  oe.length &&
     document.body.scrollWidth <= 530 &&
-    ae.forEach((e, t) => {
+    oe.forEach((e, t) => {
       t > 3 && (e.style.display = "none");
     }),
     (window.FLS = !0),
