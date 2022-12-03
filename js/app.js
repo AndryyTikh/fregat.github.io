@@ -830,7 +830,7 @@
       "Object" === Object.prototype.toString.call(e).slice(8, -1)
     );
   }
-  function E(...e) {
+  function y(...e) {
     const t = Object(e[0]),
       s = ["__proto__", "constructor", "prototype"];
     for (let n = 1; n < e.length; n += 1) {
@@ -851,9 +851,9 @@
             (C(t[i]) && C(r[i])
               ? r[i].__swiper__
                 ? (t[i] = r[i])
-                : E(t[i], r[i])
+                : y(t[i], r[i])
               : !C(t[i]) && C(r[i])
-              ? ((t[i] = {}), r[i].__swiper__ ? (t[i] = r[i]) : E(t[i], r[i]))
+              ? ((t[i] = {}), r[i].__swiper__ ? (t[i] = r[i]) : y(t[i], r[i]))
               : (t[i] = r[i]));
         }
       }
@@ -861,7 +861,7 @@
     var i;
     return t;
   }
-  function y(e, t, s) {
+  function E(e, t, s) {
     e.style.setProperty(t, s);
   }
   function x({ swiper: e, targetPosition: t, side: s }) {
@@ -1154,11 +1154,11 @@
           : c.css({ marginRight: "", marginBottom: "", marginTop: "" }),
         i.centeredSlides &&
           i.cssMode &&
-          (y(e.wrapperEl, "--swiper-centered-offset-before", ""),
-          y(e.wrapperEl, "--swiper-centered-offset-after", ""));
-      const E = i.grid && i.grid.rows > 1 && e.grid;
+          (E(e.wrapperEl, "--swiper-centered-offset-before", ""),
+          E(e.wrapperEl, "--swiper-centered-offset-after", ""));
+      const y = i.grid && i.grid.rows > 1 && e.grid;
       let x;
-      E && e.grid.initSlides(p);
+      y && e.grid.initSlides(p);
       const k =
         "auto" === i.slidesPerView &&
         i.breakpoints &&
@@ -1169,7 +1169,7 @@
         x = 0;
         const a = c.eq(n);
         if (
-          (E && e.grid.updateSlide(n, a, p, t), "none" !== a.css("display"))
+          (y && e.grid.updateSlide(n, a, p, t), "none" !== a.css("display"))
         ) {
           if ("auto" === i.slidesPerView) {
             k && (c[n].style[t("width")] = "");
@@ -1231,7 +1231,7 @@
           n.css({ width: `${e.virtualSize + i.spaceBetween}px` }),
         i.setWrapperSize &&
           n.css({ [t("width")]: `${e.virtualSize + i.spaceBetween}px` }),
-        E && e.grid.updateWrapperSize(x, u, t),
+        y && e.grid.updateWrapperSize(x, u, t),
         !i.centeredSlides)
       ) {
         const t = [];
@@ -1286,8 +1286,8 @@
         }),
         i.centeredSlides && i.cssMode && !i.centeredSlidesBounds)
       ) {
-        y(e.wrapperEl, "--swiper-centered-offset-before", -u[0] + "px"),
-          y(
+        E(e.wrapperEl, "--swiper-centered-offset-before", -u[0] + "px"),
+          E(
             e.wrapperEl,
             "--swiper-centered-offset-after",
             e.size / 2 - f[f.length - 1] / 2 + "px"
@@ -1683,7 +1683,7 @@
           : e.emit(`slidePrevTransition${i}`);
     }
   }
-  const G = {
+  const _ = {
     slideTo: function (e = 0, t = this.params.speed, s = !0, i, n) {
       if ("number" != typeof e && "string" != typeof e)
         throw new Error(
@@ -1957,7 +1957,7 @@
       } else e.slideTo(r);
     },
   };
-  const _ = {
+  const G = {
     loopCreate: function () {
       const e = this,
         t = l(),
@@ -2543,7 +2543,7 @@
         });
       const u = l.direction && l.direction !== n.direction,
         h = n.loop && (l.slidesPerView !== n.slidesPerView || u);
-      u && s && e.changeDirection(), E(e.params, l);
+      u && s && e.changeDirection(), y(e.params, l);
       const f = e.params.enabled;
       Object.assign(e, {
         allowTouchMove: e.params.allowTouchMove,
@@ -2734,9 +2734,9 @@
                 "enabled" in e[i] ||
                 (e[i].enabled = !0),
               e[i] || (e[i] = { enabled: !1 }),
-              E(t, s))
-            : E(t, s))
-        : E(t, s);
+              y(t, s))
+            : y(t, s))
+        : y(t, s);
     };
   }
   const Z = {
@@ -2765,8 +2765,8 @@
               D({ swiper: s, runCallbacks: e, direction: t, step: "End" }));
         },
       },
-      slide: G,
-      loop: _,
+      slide: _,
+      loop: G,
       grabCursor: {
         setGrabCursor: function (e) {
           const t = this;
@@ -2865,14 +2865,14 @@
           ? (s = e[0])
           : ([t, s] = e),
         s || (s = {}),
-        (s = E({}, s)),
+        (s = y({}, s)),
         t && !s.el && (s.el = t),
         s.el && w(s.el).length > 1)
       ) {
         const e = [];
         return (
           w(s.el).each((t) => {
-            const i = E({}, s, { el: t });
+            const i = y({}, s, { el: t });
             e.push(new te(i));
           }),
           e
@@ -2898,11 +2898,11 @@
           emit: i.emit.bind(i),
         });
       });
-      const r = E({}, K, n);
+      const r = y({}, K, n);
       return (
-        (i.params = E({}, r, ee, s)),
-        (i.originalParams = E({}, i.params)),
-        (i.passedParams = E({}, s)),
+        (i.params = y({}, r, ee, s)),
+        (i.originalParams = y({}, i.params)),
+        (i.passedParams = y({}, s)),
         i.params &&
           i.params.on &&
           Object.keys(i.params.on).forEach((e) => {
@@ -3250,7 +3250,7 @@
       );
     }
     static extendDefaults(e) {
-      E(ee, e);
+      y(ee, e);
     }
     static get extendedDefaults() {
       return ee;
@@ -3559,7 +3559,13 @@
         document.dispatchEvent(e);
       });
     }
-  }, 0),
+  }, 0);
+  const ae = document.querySelectorAll(".home-categories__column");
+  ae.length &&
+    document.body.scrollWidth <= 530 &&
+    ae.forEach((e, t) => {
+      t > 3 && (e.style.display = "none");
+    }),
     (window.FLS = !0),
     (function (e) {
       let t = new Image();
